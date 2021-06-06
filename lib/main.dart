@@ -33,6 +33,10 @@ class _QuizPageState extends State<QuizPage> {
     Icon(
       Icons.close,
       color: Colors.red,
+    ),
+    Icon(
+      Icons.close,
+      color: Colors.red,
     )
   ];
   @override
@@ -75,10 +79,12 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
+                  print('sffsf');
       setState(() {
         scoreKeeper.add(
             Icon(Icons.check,
               color: Colors.green,)
+
         );
       });
 
@@ -115,7 +121,11 @@ children: [Icon(
   Icon(
     Icons.close,
     color: Colors.red,
-  )],
+  ),
+  Icon(
+    Icons.check,
+    color: Colors.green,
+  ),],
       )
       ],
     );
