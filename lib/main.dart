@@ -25,19 +25,17 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  //bool onTapped = false;
   List<Icon> scoreKeeper =[
-    Icon(
+   /* Icon(
       Icons.check,
       color: Colors.green,
     ),
     Icon(
       Icons.close,
       color: Colors.red,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    )
+    ),*/
+
   ];
   @override
 
@@ -79,8 +77,10 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  print('sffsf');
+      //onTapped = true;
+                  print('true');
       setState(() {
+
         scoreKeeper.add(
             Icon(Icons.check,
               color: Colors.green,)
@@ -107,25 +107,22 @@ class _QuizPageState extends State<QuizPage> {
                   ),
                 ),
                 onPressed: () {
-                  //The user picked false.
+                  //onTapped = true;
+                  print('false');
+                  setState(() {
+                    scoreKeeper.add(
+                        Icon(Icons.close,
+                          color: Colors.red,)
+
+                    );
+                  }); //The user picked false.
                 },
               ),
             ),
           ),
         ),
-      Row(
-children: [Icon(
-  Icons.check,
-  color: Colors.green,
-),
-  Icon(
-    Icons.close,
-    color: Colors.red,
-  ),
-  Icon(
-    Icons.check,
-    color: Colors.green,
-  ),],
+     Row(
+children: scoreKeeper
       )
       ],
     );
