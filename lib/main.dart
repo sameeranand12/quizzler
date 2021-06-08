@@ -78,7 +78,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
                 onPressed: () {
       //onTapped = true;
-                  print('true');
+                  print('is true');
       setState(() {
 
         scoreKeeper.add(
@@ -102,7 +102,7 @@ class _QuizPageState extends State<QuizPage> {
                 child: Text(
                   'False',
                   style: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 21.0,
                     color: Colors.white,
                   ),
                 ),
