@@ -27,14 +27,14 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   //bool onTapped = false;
   List<Icon> scoreKeeper =[
-   /* Icon(
+    Icon(
       Icons.check,
       color: Colors.green,
     ),
     Icon(
       Icons.close,
       color: Colors.red,
-    ),*/
+    ),
 
   ];
   @override
