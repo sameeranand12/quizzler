@@ -53,7 +53,7 @@ class _QuizPageState extends State<QuizPage> {
                 'Question\'s Area',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 25.0,
+                  fontSize: 20.0,
                   color: Colors.white,
                 ),
               ),
@@ -62,7 +62,7 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
+            padding: EdgeInsets.all(10.0),
             child: Container(
               color: Colors.green,
               child: TextButton(
@@ -78,7 +78,7 @@ class _QuizPageState extends State<QuizPage> {
                 ),
                 onPressed: () {
       //onTapped = true;
-                  print('is true');
+                  print('True');
       setState(() {
 
         scoreKeeper.add(
