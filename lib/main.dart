@@ -25,21 +25,18 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
-  //bool onTapped = false;
-  List<Icon> scoreKeeper =[
-    /*Icon(
-      Icons.check,
-      color: Colors.green,
-    ),
-    Icon(
-      Icons.close,
-      color: Colors.red,
-    ),*/
 
+  //bool onTapped = false;
+  List<Icon> scoreKeeper = [];
+
+  List<String> question = [
+    'You can lead a cow down stairs but not up stairs.',
+    'Approximately one quarter of human bones are in the feet.',
+     'A slug\'s blood is green.',
   ];
   @override
-
   Widget build(BuildContext context) {
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -63,31 +60,16 @@ class _QuizPageState extends State<QuizPage> {
         Expanded(
           child: Padding(
             padding: EdgeInsets.all(10.0),
-            child: Container(
-              color: Colors.green,
+            child: Container(color: Colors.green,
               child: TextButton(
-    style: TextButton.styleFrom(
-    primary: Colors.white),
-
-                child: Text(
-                  'True',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                  ),
-                ),
+                child: Text('True', style: TextStyle(color: Colors.white, fontSize: 20.0,),),
                 onPressed: () {
-      //onTapped = true;
-                  print('True');
-      setState(() {
-
-        scoreKeeper.add(
-            Icon(Icons.check,
-              color: Colors.green,)
-
-        );
-      });
-
+                setState(() {
+                    scoreKeeper.add(Icon(
+                      Icons.check,
+                      color: Colors.green,
+                    ));
+                  });
                 },
               ),
             ),
@@ -95,35 +77,23 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Container(
-              color: Colors.red,
+            padding: EdgeInsets.all(10.0),
+            child: Container(color: Colors.red,
               child: TextButton(
-                child: Text(
-                  'False',
-                  style: TextStyle(
-                    fontSize: 21.0,
-                    color: Colors.white,
-                  ),
-                ),
+                child: Text('False', style: TextStyle(fontSize: 20.0, color: Colors.white,),),
                 onPressed: () {
-                  //onTapped = true;
-                  print('false');
                   setState(() {
-                    scoreKeeper.add(
-                        Icon(Icons.close,
-                          color: Colors.red,)
-
-                    );
+                    scoreKeeper.add(Icon(
+                      Icons.close,
+                      color: Colors.red,
+                    ));
                   }); //The user picked false.
                 },
               ),
             ),
           ),
         ),
-     Row(
-children: scoreKeeper
-      )
+        Row(children: scoreKeeper)
       ],
     );
   }
