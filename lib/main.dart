@@ -36,9 +36,7 @@ class _QuizPageState extends State<QuizPage> {
   ];
  int quesNum = 0;
  List<bool> answers = [
-   false,
-   true,
-   true,
+   false, true, true,
  ];
   @override
   Widget build(BuildContext context) {
@@ -52,14 +50,8 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Center(
-              child: Text(
-                question[quesNum],
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white,
-                ),
-              ),
+              child: Text(question[quesNum], textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20.0, color: Colors.white,),),
             ),
           ),
         ),
@@ -70,13 +62,17 @@ class _QuizPageState extends State<QuizPage> {
               child: TextButton(
                 child: Text('True', style: TextStyle(color: Colors.white, fontSize: 20.0,),),
                 onPressed: () {
+                  bool correctans = answers[quesNum];
+                if (correctans ==  true){
+                  print('user right');
+                    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+                } else{
+                  print('user wrong');
+                      scoreKeeper.add(Icon(Icons.close,color: Colors.red));
+                           }
                 setState(() {
                   quesNum++;
-                    // scoreKeeper.add(Icon(
-                    //   Icons.check,
-                    //   color: Colors.green,
-                    //));
-                  });
+                });
                 },
               ),
             ),
@@ -89,14 +85,18 @@ class _QuizPageState extends State<QuizPage> {
               child: TextButton(
                 child: Text('False', style: TextStyle(fontSize: 20.0, color: Colors.white,),),
                 onPressed: () {
+                  bool correctans = answers[quesNum];
+                  if (correctans ==  false){
+                    print('user right');
+                    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+                  } else{
+                    print('user wrong');
+                    scoreKeeper.add(Icon(Icons.close,color: Colors.red));
+                  }
                   setState(() {
                     quesNum++;
-                    // scoreKeeper.add(Icon(
-                    //   Icons.close,
-                    //   color: Colors.red,
-                    //
-                    // ));
-                  }); //The user picked false.
+
+                  });
                 },
               ),
             ),
