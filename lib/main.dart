@@ -92,7 +92,7 @@ class _QuizPageState extends State<QuizPage> {
                   } else{
                     print('user wrong');
                     scoreKeeper.add(Icon(Icons.close,color: Colors.red));
-                  }
+                  }//form today
                   setState(() {
                     quesNum++;
 
