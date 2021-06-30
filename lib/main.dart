@@ -53,7 +53,7 @@ class _QuizPageState extends State<QuizPage> {
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: Center(
-              child: Text(quizBrain.getQuestionText(questionNum), textAlign: TextAlign.center,
+              child: Text(quizBrain.getQuestionText(), textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20.0, color: Colors.white,),),
             ),
           ),
@@ -65,8 +65,8 @@ class _QuizPageState extends State<QuizPage> {
               child: TextButton(
                 child: Text('True', style: TextStyle(color: Colors.white, fontSize: 20.0,),),
                 onPressed: () {
-                  bool correctans = quizBrain.getCorrectAnswer(questionNum);
-                if (correctans ==  true){
+                  bool correctAnswer = quizBrain.getCorrectAnswer();
+                if (correctAnswer ==  true){
                   print('user right');
                     scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                 } else{
@@ -74,7 +74,7 @@ class _QuizPageState extends State<QuizPage> {
                       scoreKeeper.add(Icon(Icons.close,color: Colors.red));
                            }
                 setState(() {
-                  questionNum++;
+                  quizBrain.nextQuestion();
                 });
                 },
               ),
@@ -87,8 +87,8 @@ class _QuizPageState extends State<QuizPage> {
             child: Container(color: Colors.red,
               child: TextButton(
                 child: Text('False', style: TextStyle(fontSize: 20.0, color: Colors.white,),),
-                onPressed: () {bool correctans = quizBrain.getCorrectAnswer(questionNum);
-                if (correctans ==  false){
+                onPressed: () {bool correctAnswer = quizBrain.getCorrectAnswer();
+                if (correctAnswer ==  false){
                   print('user right');
                   scoreKeeper.add(Icon(Icons.check, color: Colors.green));
                 } else{
@@ -96,7 +96,7 @@ class _QuizPageState extends State<QuizPage> {
                   scoreKeeper.add(Icon(Icons.close,color: Colors.red));
                 }
                   setState(() {
-                    questionNum++;
+                    quizBrain.nextQuestion() ;
 
                   });
                 },

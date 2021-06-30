@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 
 import 'question.dart';
 class QuizBrain{
@@ -35,15 +35,17 @@ class QuizBrain{
   ];
 
 
-  void nextQues(){
-    if(_questionNum < _questionBank.length){
+  void nextQuestion(){
+    if(_questionNum < _questionBank.length - 1){
       _questionNum++;
     }
+    print(_questionNum);
+    print(_questionBank);
   }
-  String getQuestionText(int questionNum ){
+  String getQuestionText(){
     return _questionBank[_questionNum ].questionText;
   }
-  bool getCorrectAnswer(int questionNum){
-    return _questionBank[_questionNum].questionAns;
+  bool getCorrectAnswer(){
+    return _questionBank[_questionNum].questionAnswer;
   }
 }

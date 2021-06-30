@@ -1,11 +1,11 @@
 class Question{
   String questionText;
-  bool questionAns;
+  bool questionAnswer;
 //creating constructor
   Question(String q ,bool a)
   {
     questionText =q;
-    questionAns =a;
+    questionAnswer =a;
   }
 }
 
