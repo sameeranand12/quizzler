@@ -31,15 +31,19 @@ class _QuizPageState extends State<QuizPage> {
   //bool onTapped = false;
   List<Icon> scoreKeeper = [];
 
- //  List<String> question = [
- //    'You can lead a cow down stairs but not up stairs.',
- //    'Approximately one quarter of human bones are in the feet.',
- //     'A slug\'s blood is green.',
- //  ];
- // int quesNum = 0;
- // List<bool> answers = [false, true, true,];
- // Question q1 = Question(q:'You can lead a cow down stairs but not up stairs.' , a: false);
-
+ void checkAnswer(bool userPickedAnswer){
+   bool correctAnswer = quizBrain.getCorrectAnswer();
+   if (userPickedAnswer ==  correctAnswer){
+     print('user right');
+     scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+   } else{
+     print('user wrong');
+     scoreKeeper.add(Icon(Icons.close,color: Colors.red));
+   }
+   setState(() {
+     quizBrain.nextQuestion();
+   });
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -65,17 +69,7 @@ class _QuizPageState extends State<QuizPage> {
               child: TextButton(
                 child: Text('True', style: TextStyle(color: Colors.white, fontSize: 20.0,),),
                 onPressed: () {
-                  bool correctAnswer = quizBrain.getCorrectAnswer();
-                if (correctAnswer ==  true){
-                  print('user right');
-                    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
-                } else{
-                  print('user wrong');
-                      scoreKeeper.add(Icon(Icons.close,color: Colors.red));
-                           }
-                setState(() {
-                  quizBrain.nextQuestion();
-                });
+                 checkAnswer(true);
                 },
               ),
             ),
@@ -87,18 +81,8 @@ class _QuizPageState extends State<QuizPage> {
             child: Container(color: Colors.red,
               child: TextButton(
                 child: Text('False', style: TextStyle(fontSize: 20.0, color: Colors.white,),),
-                onPressed: () {bool correctAnswer = quizBrain.getCorrectAnswer();
-                if (correctAnswer ==  false){
-                  print('user right');
-                  scoreKeeper.add(Icon(Icons.check, color: Colors.green));
-                } else{
-                  print('user wrong');
-                  scoreKeeper.add(Icon(Icons.close,color: Colors.red));
-                }
-                  setState(() {
-                    quizBrain.nextQuestion() ;
-
-                  });
+                onPressed: () {
+                  checkAnswer(false);
                 },
               ),
             ),
