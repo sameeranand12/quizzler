@@ -40,7 +40,7 @@ class _QuizPageState extends State<QuizPage> {
  // List<bool> answers = [false, true, true,];
  // Question q1 = Question(q:'You can lead a cow down stairs but not up stairs.' , a: false);
 
-  int questionNum  = 0;
+
   @override
   Widget build(BuildContext context) {
 

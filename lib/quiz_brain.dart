@@ -1,7 +1,11 @@
+import 'package:flutter/material.dart';
+
 import 'question.dart';
 class QuizBrain{
-
+  int _questionNum  = 0;
   List<Question> _questionBank =[
+
+
     Question('Some cats are actually allergic to humans', true),
     Question('You can lead a cow down stairs but not up stairs.', false),
     Question('Approximately one quarter of human bones are in the feet.', true),
@@ -30,10 +34,16 @@ class QuizBrain{
 
   ];
 
+
+  void nextQues(){
+    if(_questionNum < _questionBank.length){
+      _questionNum++;
+    }
+  }
   String getQuestionText(int questionNum ){
-    return _questionBank[questionNum ].questionText;
+    return _questionBank[_questionNum ].questionText;
   }
   bool getCorrectAnswer(int questionNum){
-    return _questionBank[questionNum].questionAns;
+    return _questionBank[_questionNum].questionAns;
   }
 }
