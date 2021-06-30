@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
 QuizBrain quizBrain = QuizBrain();
 void main() => runApp(Quizzler());
 
@@ -33,6 +33,7 @@ class _QuizPageState extends State<QuizPage> {
 
  void checkAnswer(bool userPickedAnswer){
    bool correctAnswer = quizBrain.getCorrectAnswer();
+   setState(() {
    if (userPickedAnswer ==  correctAnswer){
      print('user right');
      scoreKeeper.add(Icon(Icons.check, color: Colors.green));
@@ -40,7 +41,7 @@ class _QuizPageState extends State<QuizPage> {
      print('user wrong');
      scoreKeeper.add(Icon(Icons.close,color: Colors.red));
    }
-   setState(() {
+
      quizBrain.nextQuestion();
    });
  }
