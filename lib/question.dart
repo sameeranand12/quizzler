@@ -2,8 +2,11 @@ class Question{
   String questionText;
   bool questionAns;
 //creating constructor
-  Question({String q ,bool a})
+  Question(String q ,bool a)
   {
     questionText =q;
     questionAns =a;
-  }}
+  }
+}
+
+Question  newQuestion =  Question('text', true);
