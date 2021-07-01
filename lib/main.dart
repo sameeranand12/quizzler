@@ -33,16 +33,37 @@ class _QuizPageState extends State<QuizPage> {
 
  void checkAnswer(bool userPickedAnswer){
    bool correctAnswer = quizBrain.getCorrectAnswer();
-   setState(() {
-   if (userPickedAnswer ==  correctAnswer){
-     print('user right');
-     scoreKeeper.add(Icon(Icons.check, color: Colors.green));
-   } else{
-     print('user wrong');
-     scoreKeeper.add(Icon(Icons.close,color: Colors.red));
-   }
 
-     quizBrain.nextQuestion();
+
+   setState(() {
+if (quizBrain.isFinished()==true){
+  //This is the code for the basic alert from the docs for rFlutter Alert:
+  //Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.").show();
+
+  //Modified for our purposes:
+  Alert(
+    context: context,
+    title: 'Finished!',
+    desc: 'You\'ve reached the end of the quiz.',
+  ).show();
+
+  // Step 4 Part C - reset the questionNumber,
+  quizBrain.reset();
+
+  // Step 4 Part D - empty out the scoreKeeper.
+  scoreKeeper = [];
+}
+else {
+  if (userPickedAnswer == correctAnswer) {
+    print('user right');
+    scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+  } else {
+    print('user wrong');
+    scoreKeeper.add(Icon(Icons.close, color: Colors.red));
+  }
+
+  quizBrain.nextQuestion();
+}
    });
  }
 
